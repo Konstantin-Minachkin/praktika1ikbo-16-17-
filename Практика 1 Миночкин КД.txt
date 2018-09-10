@@ -1,0 +1,111 @@
+					Main.java
+
+package com.company;
+//import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Ball b1 = new Ball();
+        Ball b2 = new Ball(2.3);
+        Ball b3 = new Ball(0.3,"black");
+        System.out.print(b1.toString() + b2.toString() + b3.toString() );
+        double a = b1.getRadius();
+        String b = b1.getColor();
+        b1.setMaterial("Wool");
+        System.out.print(b + " ball has radius of " + a + " cm made of " + b1.getMaterial() + "\n");
+
+        Book bo1 = new Book(100, "Tom Soyer");
+        Book bo2 = new Book (0, " ");
+        bo2.setName("War and Peace");
+        bo2.setPages(2000);
+        System.out.print(bo1.toString() + bo2.toString() + "\n");
+    }
+}
+
+					Book.java
+package com.company;
+
+/**
+ * Created by Kostya on 10.09.2018.
+ */
+public class Book {
+    private int pages;
+    private int readPages;
+    private String name;
+    public Book(int a, String b) {
+        pages = a;
+        name = b;
+        readPages = 0;
+    }
+    public int getPages(){
+        return pages;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setPages(int a){
+        pages = a;
+    }
+    public void setName(String a){
+        name = a;
+    }
+    public String toString() {
+        return name + " has " + pages + " pages. \n";
+    }
+    public void readBook(int a){
+        readPages += a;
+    }
+}
+
+					Ball.java
+package com.company;
+/**
+ * Created by Kostya on 10.09.2018.
+ */
+public class Ball {
+    private double radius;
+    private String color;
+    private String material;
+    public Ball() {
+        radius = 1.0;
+        color = "black";
+        material = "rubber";
+    }
+    public Ball(double a) {
+        radius = a;
+        color = "black";
+        material = "rubber";
+    }
+    public Ball(double a, String b) {
+        radius = a;
+        color = b;
+        material = "rubber";
+    }
+    public Ball(double a, String b, String c) {
+        radius = a;
+        color = b;
+        material = c;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public String getColor(){
+        return color;
+    }
+    public String getMaterial(){
+        return material;
+    }
+    public void setRadius(double a){
+        radius = a;
+    }
+    public void setColor(String a){
+        color = a;
+    }
+    public void setMaterial(String a){
+        material = a;
+    }
+    public String toString() {
+        return "I have " + color + " ball " + radius + " cm in radius made of " + material + ". \n";
+    }
+}
